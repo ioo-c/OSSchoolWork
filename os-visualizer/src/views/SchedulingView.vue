@@ -18,8 +18,8 @@ const processes = ref<Process[]>([])
 // 当前输入的进程信息
 const newProcess = reactive({
   id: '',
-  arrivalTime: 0,
-  serviceTime: 0
+  arrivalTime: null as number | null,     // 改为 null，允许 placeholder 显示
+  serviceTime: null as number | null      // 改为 null
 })
 
 // 调度结果（甘特图 + 统计结果）
@@ -30,7 +30,8 @@ const statistics = ref<any[]>([])
 
 // 添加进程
 function addProcess() {
-  if (!newProcess.id || newProcess.serviceTime <= 0) {
+  if (!newProcess.id ||newProcess.serviceTime === null || newProcess.serviceTime <= 0
+      || newProcess.arrivalTime === null) {
     alert('请输入有效的进程ID和服务时间')
     return
   }
@@ -43,8 +44,8 @@ function addProcess() {
 
   // 清空输入框
   newProcess.id = ''
-  newProcess.arrivalTime = 0
-  newProcess.serviceTime = 0
+  newProcess.arrivalTime = null
+  newProcess.serviceTime = null
 }
 
 // 删除进程
