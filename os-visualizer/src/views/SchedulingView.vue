@@ -191,8 +191,8 @@ function runFCFS() {
           :key="item.id"
           class="gantt-bar"
           :style="{ 
-            width: item.duration * 40 + 'px',
-            marginLeft: item.start * 40 + 'px' 
+            width: item.duration * 25.8 + 'px',
+            marginLeft: item.start * 25.8 + 'px' 
           }"
         >
           {{ item.id }} ({{ item.duration }})
@@ -268,19 +268,19 @@ button {
   display: flex;
   align-items: center;
   text-align: left;
-  border-left: #000000;
-  border-width: 4px;
 }
 
 /* 单个时间刻度 */
 .time-tick {
-  width: 40px;
   flex-shrink: 0;
   text-align: center;
   font-size: 13px;
   color: #666;
-  border-bottom: 2px solid #999;
+  /* border-bottom: 2px solid #999; */
   padding-bottom: 4px;
+  border-left-style: dashed;
+  border-color: black;
+  border-width: 1px;
 }
 .gantt-bar {
   height: 30px;
