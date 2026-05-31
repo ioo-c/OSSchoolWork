@@ -161,6 +161,31 @@ function runFCFS() {
     <div v-if="scheduleResult.length > 0" class="gantt-section">
       <h3>调度甘特图</h3>
       <div class="gantt-chart">
+        <div class="time-axis">
+          <div 
+            v-for="n in 50" 
+            :key="n" 
+            class="time-tick"
+            :style="{
+              // marginLeft:10*(n-1)+'px',
+              width:25+'px',
+              // height:30+'px'
+             }"
+          >
+            {{ (n-1)}}T
+          </div>
+        </div>
+        <!-- <div 
+          v-for="item in scheduleResult" 
+          :key="item.id"
+          class="gantt-bar"
+          :style="{ 
+            marginLeft: item.start * 40 + 'px',
+            width: item.duration * 40 + 'px'
+          }"
+        >
+          {{ item.id }} ({{ item.duration }})
+        </div> -->
         <div 
           v-for="item in scheduleResult" 
           :key="item.id"
@@ -237,6 +262,25 @@ button {
   position: relative;
   margin: 20px 0;
   overflow-x: auto;
+}
+/* 时间刻度容器 */
+.time-axis {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  border-left: #000000;
+  border-width: 4px;
+}
+
+/* 单个时间刻度 */
+.time-tick {
+  width: 40px;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+  border-bottom: 2px solid #999;
+  padding-bottom: 4px;
 }
 .gantt-bar {
   height: 30px;
