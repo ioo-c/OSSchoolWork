@@ -2,10 +2,15 @@
   "files": [],
   "references": [
     {
-      "path": "./tsconfig.node.json"
+      "path": "./tsconfig.app.json"
     },
     {
-      "path": "./tsconfig.app.json"
+      "path": "./tsconfig.node.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "strict": false,                    // 关闭严格模式（推荐你当前阶段）
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
 }
